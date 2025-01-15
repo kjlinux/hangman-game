@@ -1,14 +1,17 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide6.QtGui import QFont
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
 from .game_line_edit import GameLineEdit
 from .letter_button import LetterButton
 from .game_state_picture import GameStatePicture
 
 class GameBox(QWidget):
+    all_letters_filled = Signal()
+    
     def __init__(self, hidden_word, index, game_state_picture, parent=None):
         super().__init__(parent)
         self.setObjectName("widget_2")
+        self.gameStatePicture = game_state_picture
         
         self.verticalLayout_3 = QVBoxLayout(self)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -26,7 +29,7 @@ class GameBox(QWidget):
         self.description.setText(index)
         
         self.verticalLayout.addWidget(self.description)
-        self.verticalLayout.addWidget(game_state_picture)
+        self.verticalLayout.addWidget(self.gameStatePicture)
         
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -64,3 +67,21 @@ class GameBox(QWidget):
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         
         self.verticalLayout_3.addLayout(self.verticalLayout)
+        
+    def access_luck(self):
+        main_window = self.parent().parent().parent().parent()
+        luck = main_window.get_luck()
+        return luck
+    
+    def access_level(self):
+        main_window = self.parent().parent().parent().parent()
+        luck = main_window.get_level()
+        return luck
+    
+    def check_all_letters_filled(self):
+        all_filled = all(line_edit.text().isalpha() for line_edit in self.line_edits)
+        if all_filled:
+            self.all_letters_filled.emit()
+     
+    def print_coucou(self):
+        print("coucou")

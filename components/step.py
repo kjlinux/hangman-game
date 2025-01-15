@@ -2,10 +2,10 @@ from PySide6.QtWidgets import QLabel, QFrame
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
 
-class Level(QLabel):
+class Step(QLabel):
     def __init__(self, parent=None, end_value=10):
         super().__init__(parent)
-        self.setObjectName("level")
+        self.setObjectName("step")
         self.setFont(QFont("Tempus Sans ITC", 40))
         self.setFrameShape(QFrame.Shape.NoFrame)
         self.setAlignment(Qt.AlignmentFlag.AlignCenter)

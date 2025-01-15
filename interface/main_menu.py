@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-class Ui_WelcomePage(object):
+class MainMenu(object):
     def setupUi(self, WelcomePage):
         if not WelcomePage.objectName():
             WelcomePage.setObjectName(u"WelcomePage")
@@ -87,7 +87,7 @@ class Ui_WelcomePage(object):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
-    ui = Ui_WelcomePage()
+    ui = MainMenu()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
