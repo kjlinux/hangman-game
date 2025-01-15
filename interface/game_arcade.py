@@ -7,14 +7,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QVBoxLayout, QWidget, QStackedWidget)
+    QVBoxLayout, QWidget, QStackedWidget, QDialog)
 from components.chronometer import Chronometer
 from components.step import Step
 from components.luck import Luck
+from interface.dialog_lose import DialogLose
+from interface.dialog_win import DialogWin
+from interface.dialog_back import DialogBack
 import source_rc
 
 class GameArcade(object):
-    last_game_box_filled = Signal()
+    last_game_box_full = Signal()
+    
     def setupUi(self, MainWindow, game_boxes):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -29,6 +33,8 @@ class GameArcade(object):
         self.horizontalLayout = QHBoxLayout(self.widget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         
+        self.game_boxes = game_boxes
+        
         self.backButton = QPushButton(self.widget)
         self.backButton.setObjectName(u"backButton")
         font = QFont()
@@ -38,10 +44,12 @@ class GameArcade(object):
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentRevert))
         self.backButton.setIcon(icon)
         self.backButton.setIconSize(QSize(30, 30))
+        self.backButton.clicked.connect(self.on_back_button_clicked)
 
         self.horizontalLayout.addWidget(self.backButton)
 
         self.chronometer = Chronometer(self.widget)
+        self.chronometer.start()
         self.chronometer.setObjectName(u"chronometer")
         self.horizontalLayout.addWidget(self.chronometer)
 
@@ -50,6 +58,7 @@ class GameArcade(object):
         self.horizontalLayout.addWidget(self.step)
 
         self.luck = Luck(self.widget)
+        self.luck.life_lost.connect(self.game_lose)
         self.luck.setObjectName(u"luck")
         self.horizontalLayout.addWidget(self.luck)
 
@@ -57,15 +66,17 @@ class GameArcade(object):
         
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        for game_box in game_boxes:
+        for game_box in self.game_boxes:
+            game_box.all_letters_filled.connect(self.next_game_box)
             self.stackedWidget.addWidget(game_box)
-            game_box.all_letters_filled.connect(self.print_coucou)
         
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         QMetaObject.connectSlotsByName(MainWindow)
+        
+        self.last_game_box_full.connect(self.game_win)
     # setupUi
     def get_luck(self):
         return self.luck
@@ -77,14 +88,32 @@ class GameArcade(object):
         current_index = self.stackedWidget.currentIndex()
         next_index = (current_index + 1) % self.stackedWidget.count()
         self.stackedWidget.setCurrentIndex(next_index)
-        
-    def get_current_game_box(self):
-        current_game_box = self.stackedWidget.currentWidget()
-        return current_game_box
+        luck = self.get_luck()
+        luck.reset()
+        step = self.get_step()
+        step.next()
+        self.check_last_game_box_filled()
         
     def check_last_game_box_filled(self):
-        current_index = self.stackedWidget.currentIndex()
-        if current_index == self.stackedWidget.count() - 1:
-            current_game_box = self.get_current_game_box()
-            if all(line_edit.text().isalpha() for line_edit in current_game_box.line_edits):
-                self.last_game_box_filled.emit()
+        last_game_box = self.stackedWidget.widget(self.stackedWidget.count() - 1)
+        all_filled = all(line_edit.text() for line_edit in last_game_box.findChildren(QLineEdit))
+        if all_filled:
+            self.last_game_box_full.emit()
+
+    def game_lose(self):
+        dialog = QDialog()
+        ui = DialogLose()
+        ui.setupUi(dialog)
+        dialog.exec()
+        
+    def game_win(self):
+        dialog = QDialog()
+        ui = DialogWin()
+        ui.setupUi(dialog)
+        dialog.exec()
+        
+    def on_back_button_clicked(self):
+        dialog = QDialog()
+        ui = DialogBack()
+        ui.setupUi(dialog)
+        dialog.exec()

@@ -17,7 +17,7 @@ class GameStatePicture(QLabel):
         else:
             self.life = 8
     
-    def updateState(self, level):
+    def updateState(self):
         if self.level == "easy":
             if self.life == 7:
                 self.setPixmap(QPixmap("../images/hangman_easy_7.png"))
@@ -41,7 +41,7 @@ class GameStatePicture(QLabel):
                 self.setPixmap(QPixmap("../images/hangman_easy_1.png"))
                 self.life -= 1
             elif self.life == 0:
-                self.setPixmap(QPixmap("../images/hangman_easy_0.png"))
+                self.setPixmap(QPixmap("../images/hangman_dead.png"))
         elif self.level == "medium":
             if self.life == 5:
                 self.setPixmap(QPixmap("../images/hangman_medium_5.png"))
@@ -59,7 +59,7 @@ class GameStatePicture(QLabel):
                 self.setPixmap(QPixmap("../images/hangman_medium_1.png"))
                 self.life -= 1
             elif self.life == 0:
-                self.setPixmap(QPixmap("../images/hangman_medium_0.png"))
+                self.setPixmap(QPixmap("../images/hangman_dead.png"))
         elif self.level == "hard":
             if self.life == 3:
                 self.setPixmap(QPixmap("../images/hangman_hard_3.png"))
@@ -71,63 +71,4 @@ class GameStatePicture(QLabel):
                 self.setPixmap(QPixmap("../images/hangman_hard_1.png"))
                 self.life -= 1
             elif self.life == 0:
-                self.setPixmap(QPixmap("../images/hangman_hard_0.png"))
-    
-    def getLife(self):
-        return self.life
-              
-    def transferLife(self, life):
-        if self.level == "easy":
-            if life == 7:
-                self.setPixmap(QPixmap("../images/hangman_easy_7.png"))
-                self.life -= 1
-            elif life == 6:
-                self.setPixmap(QPixmap("../images/hangman_easy_6.png"))
-                self.life -= 1
-            elif life == 5:
-                self.setPixmap(QPixmap("../images/hangman_easy_5.png"))
-                self.life -= 1
-            elif life == 4:
-                self.setPixmap(QPixmap("../images/hangman_easy_4.png"))
-                self.life -= 1
-            elif life == 3:
-                self.setPixmap(QPixmap("../images/hangman_easy_3.png"))
-                self.life -= 1
-            elif life == 2:
-                self.setPixmap(QPixmap("../images/hangman_easy_2.png"))
-                self.life -= 1
-            elif life == 1:
-                self.setPixmap(QPixmap("../images/hangman_easy_1.png"))
-                self.life -= 1
-            elif life == 0:
-                self.setPixmap(QPixmap("../images/hangman_easy_0.png"))
-        elif self.level == "medium":
-            if life == 5:
-                self.setPixmap(QPixmap("../images/hangman_medium_5.png"))
-                self.life -= 1
-            elif life == 4:
-                self.setPixmap(QPixmap("../images/hangman_medium_4.png"))
-                self.life -= 1
-            elif life == 3:
-                self.setPixmap(QPixmap("../images/hangman_medium_3.png"))
-                self.life -= 1
-            elif life == 2:
-                self.setPixmap(QPixmap("../images/hangman_medium_2.png"))
-                self.life -= 1
-            elif life == 1:
-                self.setPixmap(QPixmap("../images/hangman_medium_1.png"))
-                self.life -= 1
-            elif life == 0:
-                self.setPixmap(QPixmap("../images/hangman_medium_0.png"))
-        elif self.level == "hard":
-            if life == 3:
-                self.setPixmap(QPixmap("../images/hangman_hard_3.png"))
-                self.life -= 1
-            elif life == 2:
-                self.setPixmap(QPixmap("../images/hangman_hard_2.png"))
-                self.life -= 1
-            elif life == 1:
-                self.setPixmap(QPixmap("../images/hangman_hard_1.png"))
-                self.life -= 1
-            elif life == 0:
-                self.setPixmap(QPixmap("../images/hangman_hard_0.png"))
+                self.setPixmap(QPixmap("../images/hangman_dead.png"))

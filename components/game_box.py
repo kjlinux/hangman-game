@@ -7,11 +7,11 @@ from .game_state_picture import GameStatePicture
 
 class GameBox(QWidget):
     all_letters_filled = Signal()
-    
     def __init__(self, hidden_word, index, game_state_picture, parent=None):
         super().__init__(parent)
         self.setObjectName("widget_2")
         self.gameStatePicture = game_state_picture
+        self.hidden_word = hidden_word
         
         self.verticalLayout_3 = QVBoxLayout(self)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -35,7 +35,7 @@ class GameBox(QWidget):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         
         self.line_edits = []
-        for _ in range(len(hidden_word)):
+        for _ in range(len(self.hidden_word)):
             line_edit = GameLineEdit(self)
             self.line_edits.append(line_edit)
             self.horizontalLayout_2.addWidget(line_edit)
@@ -46,6 +46,7 @@ class GameBox(QWidget):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         for letter in "ABCDEFGHIJ":
             button = LetterButton(letter, self)
+            button.letter_clicked.connect(self.on_letter_clicked)
             self.horizontalLayout_3.addWidget(button)
         
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -54,6 +55,7 @@ class GameBox(QWidget):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         for letter in "KLMNOPQR":
             button = LetterButton(letter, self)
+            button.letter_clicked.connect(self.on_letter_clicked)
             self.horizontalLayout_4.addWidget(button)
         
         self.verticalLayout.addLayout(self.horizontalLayout_4)
@@ -62,6 +64,7 @@ class GameBox(QWidget):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         for letter in "STUVWXYZ":
             button = LetterButton(letter, self)
+            button.letter_clicked.connect(self.on_letter_clicked)
             self.horizontalLayout_5.addWidget(button)
         
         self.verticalLayout.addLayout(self.horizontalLayout_5)
@@ -78,10 +81,17 @@ class GameBox(QWidget):
         luck = main_window.get_level()
         return luck
     
+    def on_letter_clicked(self, letter):
+        if letter in self.hidden_word:
+            for index, char in enumerate(self.hidden_word):
+                if char == letter:
+                    self.game_line_edits[index].setText(letter)
+            self.check_all_letters_filled()
+        else:
+            self.gameStatePicture.updateState()
+            luck = self.access_luck()
+            luck.lose()
+            
     def check_all_letters_filled(self):
-        all_filled = all(line_edit.text().isalpha() for line_edit in self.line_edits)
-        if all_filled:
+        if all(line_edit.text() for line_edit in self.line_edits):
             self.all_letters_filled.emit()
-     
-    def print_coucou(self):
-        print("coucou")

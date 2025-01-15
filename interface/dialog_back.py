@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
     QLabel, QSizePolicy, QVBoxLayout, QWidget)
 
-class Ui_Dialog(object):
+class DialogBack(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
@@ -67,18 +67,8 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.buttonBox)
 
-
-        self.retranslateUi(Dialog)
         self.buttonBox.accepted.connect(Dialog.accept)
         self.buttonBox.rejected.connect(Dialog.reject)
 
         QMetaObject.connectSlotsByName(Dialog)
-    # setupUi
-
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"HANGMAN GAME", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Are you sure to return to the main menu ?", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"You will lose your score", None))
-    # retranslateUi
 
