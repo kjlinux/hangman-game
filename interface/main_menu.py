@@ -7,7 +7,7 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
+import sys
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -17,10 +17,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
-import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from .game_mode import GameMode
 
 class MainMenu(object):
+    def __init__(self, cube):
+        self.cube = cube
     def setupUi(self, WelcomePage):
         if not WelcomePage.objectName():
             WelcomePage.setObjectName(u"WelcomePage")
@@ -28,17 +29,14 @@ class MainMenu(object):
         font = QFont()
         font.setBold(False)
         WelcomePage.setFont(font)
-        
         self.centralwidget = QWidget(WelcomePage)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
-        
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(11)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(9, 9, -1, 88)
-        
         self.titleWelcomePage = QLabel(self.centralwidget)
         self.titleWelcomePage.setObjectName(u"titleWelcomePage")
         font1 = QFont()
@@ -53,18 +51,18 @@ class MainMenu(object):
 
         self.verticalLayout.addWidget(self.titleWelcomePage, 0, Qt.AlignmentFlag.AlignVCenter)
 
-        self.playButtonWelcomePage = QPushButton(self.centralwidget)
-        self.playButtonWelcomePage.setObjectName(u"playButtonWelcomePage")
+        self.playButton = QPushButton(self.centralwidget)
+        self.playButton.setObjectName(u"playButton")
         font2 = QFont()
         font2.setFamilies([u"Tempus Sans ITC"])
         font2.setPointSize(18)
         font2.setBold(False)
-        self.playButtonWelcomePage.setFont(font2)
-        self.playButtonWelcomePage.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.playButtonWelcomePage.setStyleSheet(u"")
-        self.playButtonWelcomePage.setFlat(False)
+        self.playButton.setFont(font2)
+        self.playButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.playButton.setStyleSheet(u"")
+        self.playButton.setFlat(False)
 
-        self.verticalLayout.addWidget(self.playButtonWelcomePage)
+        self.verticalLayout.addWidget(self.playButton)
 
         self.playButtonWelcomePage_2 = QPushButton(self.centralwidget)
         self.playButtonWelcomePage_2.setObjectName(u"playButtonWelcomePage_2")
@@ -78,12 +76,29 @@ class MainMenu(object):
 
         self.retranslateUi(WelcomePage)
 
-        self.playButtonWelcomePage.setDefault(False)
-
+        self.playButton.setDefault(False)
 
         QMetaObject.connectSlotsByName(WelcomePage)
+        
+        self.playButton.clicked.connect(self.on_play_button_clicked)
     # setupUi
 
+    def retranslateUi(self, WelcomePage):
+        WelcomePage.setWindowTitle(QCoreApplication.translate("WelcomePage", u"MainWindow", None))
+        self.titleWelcomePage.setText(QCoreApplication.translate("WelcomePage", u"HANGMAN GAME", None))
+        self.playButton.setText(QCoreApplication.translate("WelcomePage", u"PLAY", None))
+        self.playButtonWelcomePage_2.setText(QCoreApplication.translate("WelcomePage", u"SCORES", None))
+        
+    def on_play_button_clicked(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.game_mode = GameMode(self.cube)
+        self.game_mode.setupUi(main_window)
+
+        main_window.resize(current_size)
+    # retranslateUi
+    
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
@@ -91,3 +106,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
+

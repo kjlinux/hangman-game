@@ -17,8 +17,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+from .select_option import SelectOption
 
 class SelectLevel(object):
+    def __init__(self, cube):
+        self.cube = cube
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -30,6 +33,7 @@ class SelectLevel(object):
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(9, -1, -1, 0)
+        
         self.selectLabel = QLabel(self.centralwidget)
         self.selectLabel.setObjectName(u"selectLabel")
         font = QFont()
@@ -48,16 +52,17 @@ class SelectLevel(object):
         self.horizontalLayout_3.setSpacing(16)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(50, -1, 50, -1)
-        self.easyLevel = QPushButton(self.widget)
-        self.easyLevel.setObjectName(u"easyLevel")
+        self.easyLevelButton = QPushButton(self.widget)
+        self.easyLevelButton.setObjectName(u"easyLevelButton")
         font1 = QFont()
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(14)
         font1.setBold(True)
-        self.easyLevel.setFont(font1)
-        self.easyLevel.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.easyLevel.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-        self.easyLevel.setStyleSheet(u"QPushButton {\n"
+        
+        self.easyLevelButton.setFont(font1)
+        self.easyLevelButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.easyLevelButton.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        self.easyLevelButton.setStyleSheet(u"QPushButton {\n"
 "    background-color: #FFD9CE; /* Fond par d\u00e9faut */\n"
 "    border: 2px solid #DB5461; /* Bordure */\n"
 "    border-radius: 20px; /* Forme ovale */\n"
@@ -72,16 +77,16 @@ class SelectLevel(object):
 "    color: #FFD9CE; /* Texte quand coch\u00e9 */\n"
 "}\n"
 "")
-        self.easyLevel.setCheckable(True)
-        self.easyLevel.setChecked(False)
+        self.easyLevelButton.setCheckable(True)
+        self.easyLevelButton.setChecked(False)
 
-        self.horizontalLayout_3.addWidget(self.easyLevel)
+        self.horizontalLayout_3.addWidget(self.easyLevelButton)
 
-        self.mediumLevel = QPushButton(self.widget)
-        self.mediumLevel.setObjectName(u"mediumLevel")
-        self.mediumLevel.setFont(font1)
-        self.mediumLevel.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-        self.mediumLevel.setStyleSheet(u"QPushButton {\n"
+        self.mediumLevelButton = QPushButton(self.widget)
+        self.mediumLevelButton.setObjectName(u"mediumLevelButton")
+        self.mediumLevelButton.setFont(font1)
+        self.mediumLevelButton.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        self.mediumLevelButton.setStyleSheet(u"QPushButton {\n"
 "    background-color: #FFD9CE; /* Fond par d\u00e9faut */\n"
 "    border: 2px solid #DB5461; /* Bordure */\n"
 "    border-radius: 20px; /* Forme ovale */\n"
@@ -96,16 +101,16 @@ class SelectLevel(object):
 "    color: #FFD9CE; /* Texte quand coch\u00e9 */\n"
 "}\n"
 "")
-        self.mediumLevel.setCheckable(True)
-        self.mediumLevel.setChecked(False)
+        self.mediumLevelButton.setCheckable(True)
+        self.mediumLevelButton.setChecked(False)
 
-        self.horizontalLayout_3.addWidget(self.mediumLevel)
+        self.horizontalLayout_3.addWidget(self.mediumLevelButton)
 
-        self.hardLevel = QPushButton(self.widget)
-        self.hardLevel.setObjectName(u"hardLevel")
-        self.hardLevel.setFont(font1)
-        self.hardLevel.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-        self.hardLevel.setStyleSheet(u"QPushButton {\n"
+        self.hardLevelButton = QPushButton(self.widget)
+        self.hardLevelButton.setObjectName(u"hardLevelButton")
+        self.hardLevelButton.setFont(font1)
+        self.hardLevelButton.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
+        self.hardLevelButton.setStyleSheet(u"QPushButton {\n"
 "    background-color: #FFD9CE; /* Fond par d\u00e9faut */\n"
 "    border: 2px solid #DB5461; /* Bordure */\n"
 "    border-radius: 20px; /* Forme ovale */\n"
@@ -120,10 +125,10 @@ class SelectLevel(object):
 "    color: #FFD9CE; /* Texte quand coch\u00e9 */\n"
 "}\n"
 "")
-        self.hardLevel.setCheckable(True)
-        self.hardLevel.setChecked(False)
+        self.hardLevelButton.setCheckable(True)
+        self.hardLevelButton.setChecked(False)
 
-        self.horizontalLayout_3.addWidget(self.hardLevel)
+        self.horizontalLayout_3.addWidget(self.hardLevelButton)
 
 
         self.verticalLayout.addWidget(self.widget)
@@ -142,6 +147,7 @@ class SelectLevel(object):
         font2.setPointSize(18)
         self.nextButton.setFont(font2)
         self.nextButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.nextButton.hide()
 
         self.horizontalLayout_4.addWidget(self.nextButton)
 
@@ -150,6 +156,40 @@ class SelectLevel(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
 
+        self.retranslateUi(MainWindow)
         QMetaObject.connectSlotsByName(MainWindow)
+        
+        self.nextButton.clicked.connect(self.on_next_button_clicked)
+        
+        self.easyLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.easyLevelButton, "easy"))
+        self.mediumLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.mediumLevelButton, "medium"))
+        self.hardLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.hardLevelButton, "hard"))
     # setupUi
+    
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.selectLabel.setText(QCoreApplication.translate("MainWindow", u"SELECT", None))
+        self.easyLevelButton.setText(QCoreApplication.translate("MainWindow", u"EASY", None))
+        self.mediumLevelButton.setText(QCoreApplication.translate("MainWindow", u"MEDIUM", None))
+        self.hardLevelButton.setText(QCoreApplication.translate("MainWindow", u"HARD", None))
+        self.nextButton.setText(QCoreApplication.translate("MainWindow", u"Next", None))
+    # retranslateUi
+    
+    def on_level_button_clicked(self, clicked_button, level):
+        if (self.nextButton.isHidden()):
+            self.nextButton.show()
+        self.easyLevelButton.setChecked(False)
+        self.mediumLevelButton.setChecked(False)
+        self.hardLevelButton.setChecked(False)
 
+        clicked_button.setChecked(True)
+        self.cube["level"] = level
+
+    def on_next_button_clicked(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.select_option = SelectOption(self.cube)
+        self.select_option.setupUi(main_window)
+
+        main_window.resize(current_size)

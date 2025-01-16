@@ -18,8 +18,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
     QPushButton, QSizePolicy, QSlider, QVBoxLayout,
     QWidget)
+from .loading import Loading
 
 class SelectNumber(object):
+    def __init__(self, cube):
+        self.cube = cube
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -42,6 +45,9 @@ class SelectNumber(object):
         font = QFont()
         font.setFamilies([u"Tempus Sans ITC"])
         font.setPointSize(48)
+        
+        self.cube["rounds"] = 10
+        
         self.selectLabel.setFont(font)
         self.selectLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -64,6 +70,7 @@ class SelectNumber(object):
         self.horizontalSlider.setPageStep(5)
         self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
         self.horizontalSlider.setTickInterval(5)
+        self.horizontalSlider.valueChanged.connect(self.update)
 
         self.verticalLayout_3.addWidget(self.horizontalSlider)
 
@@ -74,6 +81,7 @@ class SelectNumber(object):
         font1.setPointSize(30)
         self.label.setFont(font1)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label.setText("10")
 
         self.verticalLayout_3.addWidget(self.label)
 
@@ -86,15 +94,15 @@ class SelectNumber(object):
         self.horizontalLayout_4 = QHBoxLayout(self.widget_2)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(300, -1, 300, -1)
-        self.pushButton = QPushButton(self.widget_2)
-        self.pushButton.setObjectName(u"pushButton")
+        self.startButton = QPushButton(self.widget_2)
+        self.startButton.setObjectName(u"startButton")
         font2 = QFont()
         font2.setFamilies([u"Tempus Sans ITC"])
         font2.setPointSize(18)
-        self.pushButton.setFont(font2)
-        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.startButton.setFont(font2)
+        self.startButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        self.horizontalLayout_4.addWidget(self.pushButton)
+        self.horizontalLayout_4.addWidget(self.startButton)
 
 
         self.verticalLayout.addWidget(self.widget_2)
@@ -104,12 +112,27 @@ class SelectNumber(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+        self.startButton.clicked.connect(self.start)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.selectLabel.setText(QCoreApplication.translate("MainWindow", u"ROUNDS", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"10", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
+        self.startButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
     # retranslateUi
+    
+    def update(self, value):
+        self.label.setText(str(value))
+        self.cube["rounds"] = value
+        print(self.cube)
+        
+    def start(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.loading = Loading()
+        self.loading.setupUi(main_window)
+
+        main_window.resize(current_size)
 

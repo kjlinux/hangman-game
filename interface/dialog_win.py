@@ -69,5 +69,14 @@ class DialogWin(object):
 
         self.verticalLayout.addWidget(self.pushButton)
 
+        self.retranslateUi(Dialog)
         QMetaObject.connectSlotsByName(Dialog)
+        
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"HANGMAN GAME", None))
+        self.label.setText("")
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"YOU WIN", None))
+        self.pushButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
+    # retranslateUi
 

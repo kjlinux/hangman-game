@@ -17,8 +17,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
-
+from .select_level import SelectLevel
 class GameMode(object):
+    def __init__(self, cube):
+        self.cube = cube
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -41,32 +43,44 @@ class GameMode(object):
 
         self.verticalLayout.addWidget(self.label)
 
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.arcadeButton = QPushButton(self.centralwidget)
+        self.arcadeButton.setObjectName(u"arcadeButton")
         font1 = QFont()
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(18)
-        self.pushButton.setFont(font1)
+        self.arcadeButton.setFont(font1)
 
-        self.verticalLayout.addWidget(self.pushButton)
+        self.verticalLayout.addWidget(self.arcadeButton)
 
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setFont(font1)
+        self.limitlessButton = QPushButton(self.centralwidget)
+        self.limitlessButton.setObjectName(u"limitlessButton")
+        self.limitlessButton.setFont(font1)
 
-        self.verticalLayout.addWidget(self.pushButton_2)
+        self.verticalLayout.addWidget(self.limitlessButton)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+        
+        self.arcadeButton.clicked.connect(self.on_arcade_button_clicked)
+        
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"GAME MODE", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"ARCADE", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"LIMITLESS", None))
+        self.arcadeButton.setText(QCoreApplication.translate("MainWindow", u"ARCADE", None))
+        self.limitlessButton.setText(QCoreApplication.translate("MainWindow", u"LIMITLESS", None))
     # retranslateUi
+    
+    def on_arcade_button_clicked(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.select_level = SelectLevel(self.cube)
+        self.select_level.setupUi(main_window)
+
+        main_window.resize(current_size)
 

@@ -10,7 +10,7 @@
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+    QSize, QTime, QUrl, Qt, QPropertyAnimation, QSequentialAnimationGroup)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QProgressBar,
     QSizePolicy, QVBoxLayout, QWidget)
 
-class Ui_MainWindow(object):
+class Loading(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(13)
         self.progressBar.setFont(font1)
-        self.progressBar.setValue(24)
+        self.progressBar.setValue(0)
 
         self.verticalLayout.addWidget(self.progressBar)
 
@@ -54,10 +54,28 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
+        
+        self.animateProgressBar()
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"LOADING", None))
     # retranslateUi
+    
+    def animateProgressBar(self):
+        self.animation1 = QPropertyAnimation(self.progressBar, b"value")
+        self.animation1.setDuration(2000)
+        self.animation1.setStartValue(0)
+        self.animation1.setEndValue(30)
+
+        self.animation2 = QPropertyAnimation(self.progressBar, b"value")
+        self.animation2.setDuration(5000)
+        self.animation2.setStartValue(30)
+        self.animation2.setEndValue(100)
+
+        self.animGroup = QSequentialAnimationGroup()
+        self.animGroup.addAnimation(self.animation1)
+        self.animGroup.addAnimation(self.animation2)
+        self.animGroup.start()
 

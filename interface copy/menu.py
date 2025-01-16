@@ -76,8 +76,6 @@ class Ui_WelcomePage(object):
 
         WelcomePage.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(WelcomePage)
-
         self.playButtonWelcomePage.setDefault(False)
 
 
