@@ -42,7 +42,7 @@ class DialogWin(object):
 
         self.label = QLabel(Dialog)
         self.label.setObjectName(u"label")
-        self.label.setPixmap(QPixmap(u":/images/hangman/images/medal.png"))
+        self.label.setPixmap(QPixmap(u":/images/medal.png"))
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout.addWidget(self.label)

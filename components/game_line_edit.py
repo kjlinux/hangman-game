@@ -1,11 +1,10 @@
-from PyQt6.QtWidgets import QWidget, QLineEdit
-from PyQt6.QtGui import QFont, QCursor
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QWidget, QLineEdit
+from PySide6.QtGui import QFont, QCursor
+from PySide6.QtCore import Qt
 
 class GameLineEdit(QLineEdit):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setObjectName("case1")
         font2 = QFont()
         font2.setFamilies(["Tempus Sans ITC"])
         font2.setPointSize(14)

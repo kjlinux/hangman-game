@@ -83,7 +83,7 @@ class SelectLevel(object):
         self.horizontalLayout_3.addWidget(self.easyLevelButton)
 
         self.mediumLevelButton = QPushButton(self.widget)
-        self.mediumLevelButton.setObjectName(u"mediumLevelButton")
+        self.mediumLevelButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.mediumLevelButton.setFont(font1)
         self.mediumLevelButton.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
         self.mediumLevelButton.setStyleSheet(u"QPushButton {\n"
@@ -107,7 +107,7 @@ class SelectLevel(object):
         self.horizontalLayout_3.addWidget(self.mediumLevelButton)
 
         self.hardLevelButton = QPushButton(self.widget)
-        self.hardLevelButton.setObjectName(u"hardLevelButton")
+        self.hardLevelButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.hardLevelButton.setFont(font1)
         self.hardLevelButton.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
         self.hardLevelButton.setStyleSheet(u"QPushButton {\n"
@@ -134,14 +134,12 @@ class SelectLevel(object):
         self.verticalLayout.addWidget(self.widget)
 
         self.widget_2 = QWidget(self.centralwidget)
-        self.widget_2.setObjectName(u"widget_2")
         self.widget_2.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
         self.horizontalLayout_4 = QHBoxLayout(self.widget_2)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(300, -1, 300, -1)
         
         self.nextButton = QPushButton(self.widget_2)
-        self.nextButton.setObjectName(u"nextButton")
         font2 = QFont()
         font2.setFamilies([u"Tempus Sans ITC"])
         font2.setPointSize(18)

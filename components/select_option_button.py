@@ -27,6 +27,7 @@ class SelectOptionButton(QPushButton):
         self.setCheckable(True)
         self.setChecked(False)
         self.text = text
+        self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.clicked.connect(self.on_click)
         
     def on_click(self):

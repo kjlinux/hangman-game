@@ -17,6 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QProgressBar,
     QSizePolicy, QVBoxLayout, QWidget)
+from interface.game_arcade import GameArcade
 
 class Loading(object):
     def setupUi(self, MainWindow):
@@ -65,17 +66,31 @@ class Loading(object):
     
     def animateProgressBar(self):
         self.animation1 = QPropertyAnimation(self.progressBar, b"value")
-        self.animation1.setDuration(2000)
+        self.animation1.setDuration(500)
         self.animation1.setStartValue(0)
         self.animation1.setEndValue(30)
 
         self.animation2 = QPropertyAnimation(self.progressBar, b"value")
-        self.animation2.setDuration(5000)
+        self.animation2.setDuration(500)
         self.animation2.setStartValue(30)
         self.animation2.setEndValue(100)
 
         self.animGroup = QSequentialAnimationGroup()
         self.animGroup.addAnimation(self.animation1)
         self.animGroup.addAnimation(self.animation2)
+        
+        self.animGroup.finished.connect(self.processing_game)
+                
         self.animGroup.start()
+        
+    def processing_game(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.game_arcade = GameArcade()
+        self.game_arcade.setupUi(main_window) 
+
+        main_window.resize(current_size)
+        main_window.show()
+        
 

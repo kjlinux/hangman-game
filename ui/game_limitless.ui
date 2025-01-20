@@ -114,7 +114,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="source.qrc">:/images/hangman/images/hangman.png</pixmap>
+            <pixmap>:/images/hangman/images/hangman.png</pixmap>
            </property>
            <property name="alignment">
             <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1128,7 +1128,7 @@ QPushButton:pressed {
   </widget>
  </widget>
  <resources>
-  <include location="source.qrc"/>
+  <include location="../resources/resource.qrc"/>
   <include location="source.qrc"/>
  </resources>
  <connections/>

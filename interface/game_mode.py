@@ -26,12 +26,10 @@ class GameMode(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(698, 487)
         self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(11)
-        self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(-1, -1, -1, 88)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -44,7 +42,7 @@ class GameMode(object):
         self.verticalLayout.addWidget(self.label)
 
         self.arcadeButton = QPushButton(self.centralwidget)
-        self.arcadeButton.setObjectName(u"arcadeButton")
+        self.arcadeButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         font1 = QFont()
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(18)
@@ -53,7 +51,7 @@ class GameMode(object):
         self.verticalLayout.addWidget(self.arcadeButton)
 
         self.limitlessButton = QPushButton(self.centralwidget)
-        self.limitlessButton.setObjectName(u"limitlessButton")
+        self.limitlessButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.limitlessButton.setFont(font1)
 
         self.verticalLayout.addWidget(self.limitlessButton)

@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="/">
+    <file>../images/lose.png</file>
+    <file>../images/medal.png</file>
+    <file>../images/hangman.png</file>
+    <file>../images/hangman_alive.png</file>
+    <file>../images/hangman_dead.png</file>
+    <file>../images/hangman_easy_0.png</file>
+    <file>../images/hangman_easy_1.png</file>
+    <file>../images/hangman_easy_2.png</file>
+    <file>../images/hangman_easy_3.png</file>
+    <file>../images/hangman_easy_4.png</file>
+    <file>../images/hangman_easy_5.png</file>
+    <file>../images/hangman_easy_6.png</file>
+    <file>../images/hangman_easy_7.png</file>
+    <file>../images/hangman_medium_0.png</file>
+    <file>../images/hangman_medium_1.png</file>
+    <file>../images/hangman_medium_2.png</file>
+    <file>../images/hangman_medium_3.png</file>
+    <file>../images/hangman_medium_4.png</file>
+    <file>../images/hangman_hard_0.png</file>
+    <file>../images/hangman_hard_1.png</file>
+    <file>../images/hangman_hard_2.png</file>
+  </qresource>
+</RCC>

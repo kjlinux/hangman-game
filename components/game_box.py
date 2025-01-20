@@ -7,10 +7,11 @@ from .game_state_picture import GameStatePicture
 
 class GameBox(QWidget):
     all_letters_filled = Signal()
-    def __init__(self, hidden_word, index, game_state_picture, parent=None):
+    def __init__(self, hidden_word, index, game_state_picture, luck, parent=None):
         super().__init__(parent)
         self.setObjectName("widget_2")
         self.gameStatePicture = game_state_picture
+        self.luck = luck
         self.hidden_word = hidden_word
         
         self.verticalLayout_3 = QVBoxLayout(self)
@@ -72,8 +73,7 @@ class GameBox(QWidget):
         self.verticalLayout_3.addLayout(self.verticalLayout)
         
     def access_luck(self):
-        main_window = self.parent().parent().parent().parent()
-        luck = main_window.get_luck()
+        luck = self.main_window.get_luck()
         return luck
     
     def access_level(self):
@@ -82,15 +82,15 @@ class GameBox(QWidget):
         return luck
     
     def on_letter_clicked(self, letter):
-        if letter in self.hidden_word:
+        lower = letter.lower()
+        if lower in self.hidden_word:
             for index, char in enumerate(self.hidden_word):
-                if char == letter:
-                    self.game_line_edits[index].setText(letter)
+                if char == lower:
+                    self.line_edits[index].setText(letter)
             self.check_all_letters_filled()
         else:
             self.gameStatePicture.updateState()
-            luck = self.access_luck()
-            luck.lose()
+            self.luck.lose()
             
     def check_all_letters_filled(self):
         if all(line_edit.text() for line_edit in self.line_edits):
