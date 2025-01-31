@@ -9,7 +9,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
-from interface.main_menu import MainMenu
 class DialogLose(QDialog):
     return_to_main_menu = Signal()
     
@@ -64,7 +63,7 @@ class DialogLose(QDialog):
         self.retranslateUi(Dialog)
         QMetaObject.connectSlotsByName(Dialog)
         
-        self.nextButton.clicked.connect(self.on_next_button_clicked)
+        self.pushButton.clicked.connect(self.on_next_button_clicked)
         
         
     def retranslateUi(self, Dialog):

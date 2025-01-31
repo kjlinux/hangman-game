@@ -50,8 +50,6 @@ class SelectOption(object):
         self.widget.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.horizontalLayout_3 = QHBoxLayout(self.widget)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.selectButton = QPushButton(self.widget)
-        self.selectButton.setObjectName(u"selectButton")
         font1 = QFont()
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(14)

@@ -16,8 +16,7 @@ from interface.dialog_win import DialogWin
 from interface.dialog_back import DialogBack
 from components.game_state_picture import GameStatePicture
 from components.game_box import GameBox
-from .dialog_lose import DialogLose
-from .main_menu import MainMenu
+from providers.game_mode_provider import GameModeProvider
 
 class GameArcade(QObject):
     last_game_box_full = Signal()
@@ -31,9 +30,7 @@ class GameArcade(QObject):
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
         self.widget = QWidget(self.centralwidget)
         self.horizontalLayout = QHBoxLayout(self.widget)
-        
-        self.dialog_lose = DialogLose(on_return_to_main_menu=self.show_main_menu)
-        self.dialog_lose.show()
+        self.main_window = MainWindow
         
         words = {
             "fellin": "fellin",
@@ -122,14 +119,10 @@ class GameArcade(QObject):
         dialog.exec()
         
     def on_back_button_clicked(self):
-        dialog = QDialog()
-        ui = DialogBack()
-        ui.setupUi(dialog)
+        dialog = QDialog(self.main_window)
+        back_ui = DialogBack(self.main_window)
+        back_ui.setupUi(dialog)
         dialog.exec()
-        
-    def show_main_menu(self):
-        self.main_menu = MainMenu()
-        self.main_menu.setupUi(QApplication.activeWindow())
         
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))

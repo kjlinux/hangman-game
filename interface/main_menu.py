@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-
-################################################################################
-## Form generated from reading UI file 'menu.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-import sys
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -18,6 +8,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 from .game_mode import GameMode
+from providers.game_mode_provider import GameModeProvider
 
 class MainMenu(object):
     def __init__(self, cube):
@@ -94,16 +85,9 @@ class MainMenu(object):
         current_size = main_window.size()
 
         self.game_mode = GameMode(self.cube)
-        self.game_mode.setupUi(main_window)
+        GameModeProvider.set_instance(self.game_mode, main_window)  # Enregistrer main_window aussi
 
+        self.game_mode.setupUi(main_window)
         main_window.resize(current_size)
-    # retranslateUi
-    
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    MainWindow = QMainWindow()
-    ui = MainMenu()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())
+
 

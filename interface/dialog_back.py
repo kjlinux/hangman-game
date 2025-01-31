@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'dialog_back.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -17,12 +9,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
     QLabel, QSizePolicy, QVBoxLayout, QWidget)
+from providers.game_mode_provider import GameModeProvider
 
 class DialogBack(object):
+    def __init__(self, main_window):
+        self.main_window = main_window  # Parent est une instance de GameMode
     def setupUi(self, Dialog):
-        if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
-        Dialog.resize(400, 400)
+        self.dialog = Dialog
         Dialog.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout = QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -68,7 +61,7 @@ class DialogBack(object):
         self.verticalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(Dialog)
-        self.buttonBox.accepted.connect(Dialog.accept)
+        self.buttonBox.accepted.connect(self.on_accept)
         self.buttonBox.rejected.connect(Dialog.reject)
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -78,4 +71,11 @@ class DialogBack(object):
         self.label_3.setText(QCoreApplication.translate("Dialog", u"HANGMAN GAME", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Are you sure to return to the main menu ?", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"You will lose your score", None))
-
+    
+    def on_accept(self):
+        self.game_mode = GameModeProvider.get_instance()
+        current_size = self.main_window.size()
+        self.game_mode.setupUi(self.main_window)
+        self.main_window.resize(current_size)
+        self.main_window.show()
+        self.dialog.close()
