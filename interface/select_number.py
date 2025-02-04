@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'select_number.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -46,7 +38,7 @@ class SelectNumber(object):
         font.setFamilies([u"Tempus Sans ITC"])
         font.setPointSize(48)
         
-        self.cube["rounds"] = 10
+        self.cube["rounds"] = 5
         
         self.selectLabel.setFont(font)
         self.selectLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -64,12 +56,13 @@ class SelectNumber(object):
         self.horizontalSlider = QSlider(self.widget_3)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         self.horizontalSlider.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.horizontalSlider.setMinimum(10)
-        self.horizontalSlider.setMaximum(50)
+        self.horizontalSlider.setMinimum(5)
+        self.horizontalSlider.setMaximum(20)
         self.horizontalSlider.setSingleStep(5)
         self.horizontalSlider.setPageStep(5)
         self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
         self.horizontalSlider.setTickInterval(5)
+        self.horizontalSlider.setTickPosition(QSlider.TickPosition.TicksBelow)
         self.horizontalSlider.valueChanged.connect(self.update)
 
         self.verticalLayout_3.addWidget(self.horizontalSlider)
@@ -81,7 +74,7 @@ class SelectNumber(object):
         font1.setPointSize(30)
         self.label.setFont(font1)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label.setText("10")
+        self.label.setText("5")
 
         self.verticalLayout_3.addWidget(self.label)
 
@@ -118,7 +111,7 @@ class SelectNumber(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.selectLabel.setText(QCoreApplication.translate("MainWindow", u"ROUNDS", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"10", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"5", None))
         self.startButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
     # retranslateUi
     

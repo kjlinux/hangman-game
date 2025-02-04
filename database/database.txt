@@ -1,0 +1,230 @@
+Pomme, Un fruit rouge ou vert, sucré, souvent mangé cru, 0, Aliments  
+Éléphant, Le plus grand mammifère terrestre avec une trompe, 0, Animaux  
+Crayon, Objet utilisé pour écrire ou dessiner, 0, Objets  
+Avion, Moyen de transport qui vole dans le ciel, 0, Transports  
+Chat, Animal domestique connu pour ses moustaches et ses ronronnements, 0, Animaux  
+Plage, Lieu au bord de la mer avec du sable, 0, Lieux  
+Pizza, Plat italien rond avec du fromage et de la sauce tomate, 0, Aliments  
+Lune, Satellite naturel de la Terre visible la nuit, 0, Astronomie  
+Paris, Capitale de la France, célèbre pour la tour Eiffel, 0, Pays & Villes  
+Fromage, Produit laitier souvent utilisé dans les sandwichs, 0, Aliments  
+Banane, Fruit jaune apprécié pour son goût sucré, 0, Aliments  
+Bateau, Moyen de transport sur l’eau, 0, Transports  
+Canard, Petit animal aquatique qui nage et fait "coin coin", 0, Animaux  
+Soleil, Astre autour duquel la Terre tourne, 0, Astronomie  
+Chaise, Meuble utilisé pour s'asseoir, 0, Objets  
+Gâteau, Dessert sucré souvent servi lors des anniversaires, 0, Aliments  
+Livre, Objet contenant des pages écrites pour lire des histoires, 0, Objets  
+Vache, Animal de ferme connu pour produire du lait, 0, Animaux  
+Voiture, Moyen de transport courant avec quatre roues, 0, Transports  
+École, Lieu où les enfants vont apprendre, 0, Lieux  
+Montagne, Relief élevé souvent couvert de neige au sommet, 0, Nature  
+Python, Langage de programmation très populaire, 1, Technologie  
+Girafe, Animal avec un long cou vivant en Afrique, 1, Animaux  
+Mangue, Fruit tropical sucré et juteux, 1, Aliments  
+Vélocité, Mesure de la rapidité d’un objet, 1, Sciences  
+Dentiste, Personne spécialisée dans la santé bucco-dentaire, 1, Métiers  
+Amazonie, Grande forêt tropicale en Amérique du Sud, 1, Lieux  
+Chameau, Animal du désert capable de survivre sans eau plusieurs jours, 1, Animaux  
+Écureuil, Petit animal qui grimpe aux arbres, 1, Animaux  
+Quiche, Plat salé souvent préparé avec des œufs et de la crème, 1, Aliments  
+Sahara, Le plus grand désert chaud du monde, 1, Lieux  
+Orchidée, Une fleur élégante et souvent rare, 1, Nature  
+Planète, Corps céleste tournant autour d'une étoile, 1, Astronomie  
+Ferme, Lieu où l’on élève des animaux et cultive la terre, 1, Lieux  
+Bijou, Objet précieux souvent utilisé comme accessoire, 1, Objets  
+Médecin, Profession qui consiste à soigner les malades, 1, Métiers  
+Tigre, Grand félin avec des rayures noires et oranges, 1, Animaux  
+Cactus, Plante épineuse qui pousse dans les déserts, 1, Nature  
+Pyramide, Monument ancien souvent construit en Égypte, 1, Histoire  
+Orage, Phénomène météorologique avec éclairs et tonnerre, 1, Nature  
+Ardoise, Matériau utilisé autrefois pour écrire à l'école, 1, Objets  
+Matrice, Structure mathématique utilisée en algèbre, 2, Sciences  
+Samouraï, Guerrier japonais de l’époque féodale, 2, Histoire  
+Zephyr, Vent doux et agréable, 2, Nature  
+Pluton, Ancienne planète, maintenant classée comme planète naine, 2, Astronomie  
+Obsidienne, Roche volcanique noire et brillante, 2, Sciences  
+Papyrus, Support d’écriture dans l’Égypte ancienne, 2, Histoire  
+Kintsugi, Art japonais de réparer la céramique avec de l’or, 2, Culture  
+Cynophile, Personne passionnée par les chiens, 2, Sociétés  
+Mangouste, Petit carnivore connu pour sa lutte contre les serpents, 2, Animaux  
+Himalaya, Chaîne de montagnes célèbre pour l’Everest, 2, Lieux  
+Énigmatique, Qui est difficile à comprendre ou mystérieux, 2, Adjectifs  
+Bibliophile, Amateur ou collectionneur de livres, 2, Sociétés  
+Sphinx, Créature mythologique souvent associée à des énigmes, 2, Mythologie  
+Zodiaque, Ensemble des constellations traversées par le soleil, 2, Astronomie  
+Origami, Art japonais de pliage du papier, 2, Culture  
+Cryogénie, Science étudiant la production de très basses températures, 2, Sciences  
+Quasar, Source d’énergie lumineuse au centre des galaxies, 2, Astronomie  
+Fjord, Vallée glaciaire en Norvège, souvent envahie par la mer, 2, Lieux  
+Tsunami, Vague gigantesque causée par un séisme sous-marin, 2, Nature  
+Mimétisme, Adaptation permettant à un animal de se fondre dans son environnement, 2, Animaux  
+Geyser, Source chaude qui projette de l'eau et de la vapeur, 2, Nature  
+Amphore, Récipient antique pour transporter des liquides, 2, Histoire  
+Fresque, Peinture murale représentant une scène, 2, Culture  
+Eureka, Exclamation utilisée pour signifier une grande découverte, 2, Expressions  
+Stalactite, Dépôt minéral suspendu dans une grotte, 2, Sciences  
+Icare, Personnage mythologique célèbre pour avoir volé trop près du soleil, 2, Mythologie  
+Trilobite, Fossile d’un ancien arthropode marin, 2, Paléontologie  
+Stradivarius, Violon célèbre et très précieux, 2, Objets  
+Phare, Tour servant de guide pour les bateaux, 2, Objets  
+Astrolabe, Instrument ancien utilisé pour observer les étoiles, 2, Astronomie  
+Manuscrit, Document écrit à la main, souvent ancien, 2, Histoire  
+Hypothèse, Proposition qu’on cherche à vérifier ou démontrer, 2, Sciences  
+Hyperbole, Figure de style consistant à exagérer, 2, Littérature  
+Éphémère, Qui ne dure pas longtemps, 2, Adjectifs  
+Alambic, Appareil utilisé pour la distillation, 2, Objets
+Sculpture, Œuvre d'art en trois dimensions, souvent faite de pierre ou de bois, 1, Arts  
+Aurore, Lumière du matin ou phénomène polaire lumineux, 1, Nature  
+Éventail, Accessoire utilisé pour se rafraîchir, 1, Objets  
+Kangourou, Animal marsupial connu pour ses sauts et sa poche ventrale, 1, Animaux  
+Zèbre, Animal d'Afrique aux rayures noires et blanches, 1, Animaux  
+Igloo, Maison de glace construite par les Inuits, 1, Lieux  
+Gondole, Bateau typique de Venise, 1, Transports  
+Calendrier, Système permettant de suivre les jours et mois de l'année, 1, Objets  
+Mandoline, Instrument de musique à cordes pincées, 1, Arts  
+Boussole, Outil utilisé pour s'orienter grâce au magnétisme, 1, Objets  
+Volcan, Montagne d'où s'échappent de la lave et des gaz, 2, Nature  
+Hélium, Gaz utilisé dans les ballons et les expériences scientifiques, 2, Sciences  
+Cryptographie, Science de l'écriture secrète et codée, 2, Sciences  
+Nébuleuse, Nuage de gaz et de poussière dans l’espace, 2, Astronomie  
+Anubis, Divinité égyptienne représentée avec une tête de chacal, 2, Mythologie  
+Pléiades, Groupe d'étoiles visible dans le ciel nocturne, 2, Astronomie  
+Basilic, Plante aromatique utilisée en cuisine, ou créature légendaire, 2, Aliments  
+Mycologie, Science qui étudie les champignons, 2, Sciences  
+Sismographe, Instrument mesurant les tremblements de terre, 2, Sciences  
+Chimère, Créature mythologique composée de parties d'animaux différents, 2, Mythologie  
+Émail, Substance brillante recouvrant les dents ou la poterie, 2, Objets  
+Caravelle, Navire utilisé par les explorateurs durant les grandes découvertes, 2, Histoire  
+Mousquetaire, Soldat d'élite sous l'Ancien Régime français, 2, Histoire  
+Constellation, Groupe d'étoiles formant une figure dans le ciel, 2, Astronomie  
+Dialecte, Variante régionale d'une langue, 2, Linguistique  
+Palindrome, Mot ou phrase qui se lit de la même façon dans les deux sens, 2, Littérature  
+Glycine, Plante grimpante à fleurs violettes ou blanches, 2, Nature  
+Sphinx, Monument égyptien ou créature mythique, 2, Histoire  
+Filigrane, Dessin ou marque visible en transparence dans le papier, 2, Objets  
+Uchronie, Fiction basée sur la modification d’un événement historique, 2, Littérature  
+Flocon, Petite particule de neige en forme de cristal, 0, Nature  
+Couteau, Objet tranchant utilisé pour couper, 0, Objets  
+Tournesol, Plante jaune qui suit le soleil, 0, Nature  
+Cerise, Petit fruit rouge souvent utilisé en dessert, 0, Aliments  
+Pont, Construction reliant deux endroits séparés par un obstacle, 0, Lieux  
+Raisin, Fruit utilisé pour faire du vin ou mangé frais, 0, Aliments  
+Cheval, Animal utilisé pour la course ou comme moyen de transport, 0, Animaux  
+Forêt, Étendue couverte d’arbres et de végétation, 0, Nature  
+Bougie, Objet cylindrique qui produit de la lumière en brûlant, 0, Objets  
+Train, Moyen de transport qui roule sur des rails, 0, Transports  
+Baleine, Le plus grand mammifère marin, 1, Animaux  
+Tortue, Reptile à carapace dure qui vit sur terre ou dans l'eau, 1, Animaux  
+Poulpe, Animal marin avec huit tentacules, 1, Animaux  
+Colisée, Monument historique situé à Rome, 1, Lieux  
+Tulipe, Fleur colorée souvent associée aux Pays-Bas, 1, Nature  
+Bibliothèque, Lieu où les livres sont empruntés ou consultés, 1, Lieux  
+Astronaute, Personne formée pour voyager dans l’espace, 1, Métiers  
+Sous-marin, Véhicule qui se déplace sous l’eau, 1, Transports  
+Métaphore, Figure de style comparant deux idées sans utiliser "comme", 1, Littérature  
+Harmonica, Instrument de musique à vent souvent utilisé dans le blues, 1, Arts  
+Astéroïde, Corps rocheux tournant autour du soleil, 2, Astronomie  
+Génome, Ensemble du matériel génétique d’un organisme, 2, Sciences  
+Oasis, Zone fertile dans un désert, souvent autour d’une source d’eau, 2, Nature  
+Minotaure, Créature mythologique mi-homme mi-taureau, 2, Mythologie  
+Ziggourat, Temple mésopotamien en forme de pyramide à étages, 2, Histoire  
+Paradoxe, Proposition contraire à l’intuition ou à la logique, 2, Philosophie  
+Tectonique, Étude des mouvements de l’écorce terrestre, 2, Sciences  
+Hydravion, Avion capable de décoller et d’atterrir sur l’eau, 2, Transports  
+Mégalithe, Monument de grande taille souvent préhistorique, 2, Histoire  
+Renaissance, Période historique marquée par un renouveau artistique, 2, Histoire  
+Sarcophage, Cercueil en pierre utilisé dans l’Antiquité, 2, Histoire  
+Pétroglyphe, Gravure sur pierre datant de la préhistoire, 2, Archéologie  
+Barycentre, Point autour duquel gravitent deux corps célestes, 2, Astronomie  
+Fjord, Vallée glaciaire souvent envahie par l’eau de mer, 2, Nature  
+Rorschach, Test psychologique utilisant des taches d’encre, 2, Psychologie  
+Cariatide, Statue servant de colonne dans un édifice, 2, Architecture  
+Hologramme, Image tridimensionnelle créée par laser, 2, Technologie  
+Équinoxe, Moment où la durée du jour est égale à celle de la nuit, 2, Astronomie  
+Spiruline, Algue riche en nutriments utilisée comme complément alimentaire, 2, Aliments  
+Médusa, Créature mythologique dont le regard pétrifie, 2, Mythologie  
+Cactus, Plante du désert avec des épines, 0, Nature  
+Fourchette, Ustensile utilisé pour manger, 0, Objets  
+Ballon, Objet sphérique utilisé dans plusieurs jeux, 0, Objets  
+Chat, Animal domestique apprécié pour sa douceur, 0, Animaux  
+Pluie, Précipitation sous forme de gouttes d’eau, 0, Nature  
+Fleur, Partie colorée d'une plante, souvent parfumée, 0, Nature  
+Livre, Objet contenant des pages écrites ou imprimées, 0, Objets  
+Mer, Grande étendue d'eau salée, 0, Lieux  
+Pain, Aliment de base souvent fait de farine et d’eau, 0, Aliments  
+Lune, Satellite naturel de la Terre, visible la nuit, 0, Astronomie  
+Araignée, Petit animal à huit pattes, souvent tisseur de toiles, 1, Animaux  
+Tigre, Grand félin à rayures orange et noires, 1, Animaux  
+Pyramide, Monument ancien de forme triangulaire, 1, Histoire  
+Mangue, Fruit tropical sucré et juteux, 1, Aliments  
+Ciel, Étendue bleue visible au-dessus de nous, 1, Nature  
+Jungle, Forêt tropicale dense et humide, 1, Nature  
+Vélo, Moyen de transport à deux roues, 1, Transports  
+Violon, Instrument de musique à cordes frottées, 1, Arts  
+Bateau, Véhicule utilisé pour naviguer sur l’eau, 1, Transports  
+Caverne, Grotte naturelle formée dans une montagne, 1, Nature  
+Pharaon, Roi de l’Ancienne Égypte, 2, Histoire  
+Dynastie, Suite de souverains issus de la même famille, 2, Histoire  
+Obsidienne, Roche volcanique noire et brillante, 2, Sciences  
+Galaxie, Ensemble de milliards d’étoiles et de matière, 2, Astronomie  
+Quasar, Source d’énergie lumineuse extrêmement lointaine, 2, Astronomie  
+Gargouille, Sculpture en forme de créature grotesque sur les bâtiments, 2, Architecture  
+Paganisme, Croyance religieuse ancienne souvent polythéiste, 2, Religions  
+Origami, Art japonais du pliage de papier, 2, Arts  
+Mandragore, Plante légendaire aux propriétés supposées magiques, 2, Mythologie  
+Kaléidoscope, Objet formant des motifs colorés lorsqu’on le tourne, 2, Objets  
+Conifère, Arbre produisant des cônes et restant vert toute l’année, 2, Nature  
+Mousson, Saison des pluies dans certaines régions tropicales, 2, Nature  
+Astrolabe, Instrument ancien utilisé pour mesurer la position des étoiles, 2, Astronomie  
+Amphithéâtre, Structure antique utilisée pour des spectacles publics, 2, Histoire  
+Alchimie, Ancienne pratique visant à transformer les métaux en or, 2, Sciences  
+Baryton, Voix masculine intermédiaire entre ténor et basse, 2, Arts  
+Cartographie, Science de la création des cartes, 2, Géographie  
+Marathon, Course à pied de 42,195 kilomètres, 2, Sports  
+Chandelle, Ancienne source de lumière faite de cire, 2, Objets  
+Euphémisme, Expression adoucie pour éviter de choquer, 2, Littérature
+Canard, Oiseau aquatique souvent domestiqué, 0, Animaux  
+Cloche, Objet émettant un son en étant frappé, 0, Objets  
+Sapin, Arbre à feuilles persistantes, souvent utilisé à Noël, 0, Nature  
+Zèbre, Animal à rayures noires et blanches, 0, Animaux  
+Gant, Accessoire pour couvrir les mains, 0, Objets  
+Brique, Bloc utilisé dans la construction, 0, Objets  
+Miel, Substance sucrée produite par les abeilles, 0, Aliments  
+Porte, Ouverture permettant d'entrer ou de sortir, 0, Objets  
+Chien, Animal domestique fidèle à l’homme, 0, Animaux  
+Riz, Céréale largement cultivée pour son grain, 0, Aliments  
+Loup, Grand canidé vivant en meute, 1, Animaux  
+Phare, Tour servant à guider les navires, 1, Objets  
+Savane, Vaste plaine herbeuse dans les régions tropicales, 1, Nature  
+Gondole, Bateau traditionnel utilisé à Venise, 1, Transports  
+Bambou, Plante à tige creuse souvent utilisée dans la construction, 1, Nature  
+Harpe, Instrument de musique à cordes pincées, 1, Arts  
+Cristal, Solide aux faces planes, souvent transparent, 1, Sciences  
+Vampire, Créature légendaire buvant le sang des vivants, 1, Mythologie  
+Geyser, Source jaillissante d’eau chaude, 1, Nature  
+Puzzle, Jeu consistant à assembler des pièces pour former une image, 1, Objets  
+Glycine, Plante grimpante avec des fleurs mauves, 2, Nature  
+Météore, Phénomène lumineux causé par un objet entrant dans l’atmosphère, 2, Astronomie  
+Cariatide, Sculpture en forme de femme soutenant un édifice, 2, Architecture  
+Pandore, Personnage mythologique ayant ouvert une boîte renfermant tous les maux, 2, Mythologie  
+Monolithe, Bloc de pierre massif souvent utilisé pour des monuments, 2, Géologie  
+Arbalète, Arme ancienne projetant des flèches, 2, Histoire  
+Alizé, Vent régulier soufflant dans les régions tropicales, 2, Géographie  
+Rubidium, Élément chimique rare utilisé dans des applications scientifiques, 2, Sciences  
+Télescope, Instrument permettant d’observer des objets éloignés dans le ciel, 2, Astronomie  
+Oasis, Zone fertile au milieu d’un désert, 2, Nature  
+Igloo, Abri en forme de dôme fait de blocs de glace, 0, Objets  
+Trèfle, Plante porte-bonheur à quatre feuilles, 0, Nature  
+Couteau, Outil utilisé pour couper, 0, Objets  
+Lion, Grand félin surnommé « roi des animaux », 0, Animaux  
+Perle, Petit objet rond formé dans les coquillages, 0, Objets  
+Plomb, Métal lourd et dense utilisé dans l’industrie, 1, Sciences  
+Fjord, Vallée glaciaire remplie d’eau, 1, Géographie  
+Hermine, Mammifère carnivore au pelage blanc en hiver, 1, Animaux  
+Mandarine, Petit agrume sucré, 1, Aliments  
+Obélisque, Colonne monumentale de forme allongée, 2, Histoire  
+Baliste, Arme de siège antique projetant des projectiles, 2, Histoire  
+Griffon, Créature mythologique avec un corps de lion et une tête d’aigle, 2, Mythologie  
+Azimut, Angle de direction par rapport au nord, 2, Astronomie  
+Krypton, Élément chimique noble utilisé dans l’éclairage, 2, Sciences  

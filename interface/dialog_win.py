@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'dialog_win.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -17,11 +9,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+from providers.game_mode_provider import GameModeProvider
+
 class DialogWin(object):
+    def __init__(self, main_window):
+        self.main_window = main_window
     def setupUi(self, Dialog):
-        if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
-        Dialog.resize(400, 400)
+        self.dialog = Dialog
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet(u"background-color: rgb(255, 217, 206);")
         self.verticalLayout = QVBoxLayout(Dialog)
@@ -64,6 +58,7 @@ class DialogWin(object):
         font2.setPointSize(14)
         self.pushButton.setFont(font2)
         self.pushButton.setStyleSheet(u"color: rgb(219, 84, 97);")
+        self.pushButton.clicked.connect(self.on_accept)
 
         self.verticalLayout.addWidget(self.pushButton)
 
@@ -77,4 +72,12 @@ class DialogWin(object):
         self.label_2.setText(QCoreApplication.translate("Dialog", u"YOU WIN", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
     # retranslateUi
+    
+    def on_accept(self):
+        self.game_mode = GameModeProvider.get_instance()
+        current_size = self.main_window.size()
+        self.game_mode.setupUi(self.main_window)
+        self.main_window.resize(current_size)
+        self.main_window.show()
+        self.dialog.close()
 

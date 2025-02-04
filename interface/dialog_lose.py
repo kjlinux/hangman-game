@@ -9,17 +9,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+from providers.game_mode_provider import GameModeProvider
+
 class DialogLose(QDialog):
     return_to_main_menu = Signal()
     
-    def __init__(self, parent=None, on_return_to_main_menu=None):
+    def __init__(self, main_window, parent=None, on_return_to_main_menu=None):
         super().__init__(parent)
         self.on_return_to_main_menu = on_return_to_main_menu
+        self.main_window = main_window
         self.setupUi(self)
     def setupUi(self, Dialog):
-        if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
-        Dialog.resize(400, 420)
+        self.dialog = Dialog
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout = QVBoxLayout(Dialog)
@@ -63,7 +64,7 @@ class DialogLose(QDialog):
         self.retranslateUi(Dialog)
         QMetaObject.connectSlotsByName(Dialog)
         
-        self.pushButton.clicked.connect(self.on_next_button_clicked)
+        self.pushButton.clicked.connect(self.on_accept)
         
         
     def retranslateUi(self, Dialog):
@@ -73,7 +74,10 @@ class DialogLose(QDialog):
         self.label_2.setText(QCoreApplication.translate("Dialog", u"YOU ARE HANGED", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
         
-    def on_next_button_clicked(self):
-        if self.on_return_to_main_menu:
-            self.on_return_to_main_menu()
-        self.close()
+    def on_accept(self):
+        self.game_mode = GameModeProvider.get_instance()
+        current_size = self.main_window.size()
+        self.game_mode.setupUi(self.main_window)
+        self.main_window.resize(current_size)
+        self.main_window.show()
+        self.dialog.close()

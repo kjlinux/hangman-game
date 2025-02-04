@@ -159,9 +159,9 @@ class SelectLevel(object):
         
         self.nextButton.clicked.connect(self.on_next_button_clicked)
         
-        self.easyLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.easyLevelButton, "easy"))
-        self.mediumLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.mediumLevelButton, "medium"))
-        self.hardLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.hardLevelButton, "hard"))
+        self.easyLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.easyLevelButton, 0))
+        self.mediumLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.mediumLevelButton, 1))
+        self.hardLevelButton.clicked.connect(lambda: self.on_level_button_clicked(self.hardLevelButton, 2))
     # setupUi
     
     def retranslateUi(self, MainWindow):

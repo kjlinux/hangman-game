@@ -4,6 +4,7 @@ from PySide6.QtCore import Qt, Signal
 from .game_line_edit import GameLineEdit
 from .letter_button import LetterButton
 from .game_state_picture import GameStatePicture
+import unicodedata
 
 class GameBox(QWidget):
     all_letters_filled = Signal()
@@ -12,7 +13,7 @@ class GameBox(QWidget):
         self.setObjectName("widget_2")
         self.gameStatePicture = game_state_picture
         self.luck = luck
-        self.hidden_word = hidden_word
+        self.hidden_word = self.format_word(hidden_word)
         
         self.verticalLayout_3 = QVBoxLayout(self)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -33,6 +34,7 @@ class GameBox(QWidget):
         self.verticalLayout.addWidget(self.gameStatePicture)
         
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         
         self.line_edits = []
@@ -82,7 +84,7 @@ class GameBox(QWidget):
         return luck
     
     def on_letter_clicked(self, letter):
-        lower = letter.lower()
+        lower = self.format_word(letter)
         if lower in self.hidden_word:
             for index, char in enumerate(self.hidden_word):
                 if char == lower:
@@ -95,3 +97,9 @@ class GameBox(QWidget):
     def check_all_letters_filled(self):
         if all(line_edit.text() for line_edit in self.line_edits):
             self.all_letters_filled.emit()
+            
+    def format_word(self, text):
+        text = text.lower()
+        text = unicodedata.normalize("NFD", text)
+        text = "".join(char for char in text if unicodedata.category(char) != "Mn")  # Supprimer les accents
+        return text

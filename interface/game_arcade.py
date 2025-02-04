@@ -16,7 +16,8 @@ from interface.dialog_win import DialogWin
 from interface.dialog_back import DialogBack
 from components.game_state_picture import GameStatePicture
 from components.game_box import GameBox
-from providers.game_mode_provider import GameModeProvider
+from database.query_builder import QueryBuilder
+from providers.cube_provider import CubeProvider
 
 class GameArcade(QObject):
     last_game_box_full = Signal()
@@ -32,10 +33,11 @@ class GameArcade(QObject):
         self.horizontalLayout = QHBoxLayout(self.widget)
         self.main_window = MainWindow
         
-        words = {
-            "fellin": "fellin",
-            "maison": "plus de sécurité"
-        }
+        rounds = 5
+        level = CubeProvider.get_instance()['level']
+        categories = CubeProvider.get_instance()['options']
+        rounds = CubeProvider.get_instance()['rounds']
+        words = QueryBuilder().get_random_elements(level, categories, rounds)
         
         game_boxes = []
         
@@ -107,14 +109,14 @@ class GameArcade(QObject):
             self.last_game_box_full.emit()
 
     def game_lose(self):
-        dialog = QDialog()
-        ui = DialogLose()
+        dialog = QDialog(self.main_window)
+        ui = DialogLose(self.main_window)
         ui.setupUi(dialog)
         dialog.exec()
         
     def game_win(self):
-        dialog = QDialog()
-        ui = DialogWin()
+        dialog = QDialog(self.main_window)
+        ui = DialogWin(self.main_window)
         ui.setupUi(dialog)
         dialog.exec()
         

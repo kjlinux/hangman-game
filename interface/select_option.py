@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QPushButton, QSizePolicy, QVBoxLayout, QWidget, QGridLayout)
 from components.select_option_button import SelectOptionButton
 from .select_number import SelectNumber
+from database.query_builder import QueryBuilder
 
 class SelectOption(object):
     def __init__(self, cube):
@@ -48,17 +49,28 @@ class SelectOption(object):
         self.widget.setObjectName(u"widget")
         self.widget.setEnabled(True)
         self.widget.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.horizontalLayout_3 = QHBoxLayout(self.widget)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.gridLayout = QGridLayout(self.widget)
+        self.gridLayout.setObjectName(u"gridLayout")
         font1 = QFont()
         font1.setFamilies([u"Tempus Sans ITC"])
         font1.setPointSize(14)
         font1.setBold(True)
         
-        for element in ["Option1", "Option2", "Option3"]:
-                elementButton = SelectOptionButton(element)
-                elementButton.option_clicked.connect(self.on_option_clicked)
-                self.horizontalLayout_3.addWidget(elementButton)
+        categories = QueryBuilder().get_categories()
+        
+        rows = 0
+        cols = 0
+        max_cols = 5
+
+        for _ , element in enumerate(categories):
+            elementButton = SelectOptionButton(element)
+            elementButton.option_clicked.connect(self.on_option_clicked)
+            self.gridLayout.addWidget(elementButton, rows, cols)
+
+            cols += 1
+            if cols >= max_cols:
+                cols = 0
+                rows += 1
 
         self.verticalLayout.addWidget(self.widget)
 
