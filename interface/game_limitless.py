@@ -18,7 +18,7 @@ class GameLimitless(QObject):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(799, 635)
+        MainWindow.setMinimumSize(0, 0)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -46,15 +46,15 @@ class GameLimitless(QObject):
         self.chronometer.start()
         self.horizontalLayout.addWidget(self.chronometer)
 
-        self.step = Step(self.widget)
+        self.step = Step(self.widget, mode="limitless")
         self.horizontalLayout.addWidget(self.step)
 
-        self.luck = Luck(self.widget)
+        self.luck = Luck(self.widget, mode="limitless")
         self.luck.life_lost.connect(self.game_lose)
         self.horizontalLayout.addWidget(self.luck)
         
         for key, value in words.items():
-            game_state_picture = GameStatePicture()
+            game_state_picture = GameStatePicture(mode="limitless")
             game_boxes.append(
                 GameBox(key, value, game_state_picture, self.luck, MainWindow)
             )
@@ -68,6 +68,8 @@ class GameLimitless(QObject):
         for game_box in game_boxes:
             game_box.all_letters_filled.connect(self.next_game_box)
             self.stackedWidget.addWidget(game_box)
+            
+        game_boxes[0].setFocus()
         
         self.verticalLayout_2.addWidget(self.timer)
         self.verticalLayout_2.addWidget(self.stackedWidget)
@@ -127,4 +129,4 @@ class GameLimitless(QObject):
         self.backButton.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
         self.chronometer.setText(QCoreApplication.translate("MainWindow", u"15:10", None))
         self.step.setText(QCoreApplication.translate("MainWindow", u"\u00e9tape 1", None))
-        self.luck.setText(QCoreApplication.translate("MainWindow", u"8 chances", None))
+        self.luck.setText(QCoreApplication.translate("MainWindow", u"\u221E chances", None))

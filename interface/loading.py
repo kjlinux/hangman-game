@@ -19,7 +19,7 @@ class Loading(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(640, 480)
+        MainWindow.setMinimumSize(0, 0)
         MainWindow.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")

@@ -25,7 +25,7 @@ class SelectLevel(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(693, 480)
+        MainWindow.setMinimumSize(0, 0)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.centralwidget = QWidget(MainWindow)

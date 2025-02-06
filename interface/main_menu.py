@@ -16,7 +16,7 @@ class MainMenu(object):
     def setupUi(self, WelcomePage):
         if not WelcomePage.objectName():
             WelcomePage.setObjectName(u"WelcomePage")
-        WelcomePage.resize(708, 537)
+        WelcomePage.setMinimumSize(0, 0)
         font = QFont()
         font.setBold(False)
         WelcomePage.setFont(font)

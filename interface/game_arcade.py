@@ -25,7 +25,7 @@ class GameArcade(QObject):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        self.setMinimumSize(0, 0)
+        MainWindow.setMinimumSize(0, 0)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -57,15 +57,15 @@ class GameArcade(QObject):
         self.chronometer.start()
         self.horizontalLayout.addWidget(self.chronometer)
 
-        self.step = Step(self.widget)
+        self.step = Step(self.widget, rounds)
         self.horizontalLayout.addWidget(self.step)
 
-        self.luck = Luck(self.widget)
+        self.luck = Luck(self.widget, level)
         self.luck.life_lost.connect(self.game_lose)
         self.horizontalLayout.addWidget(self.luck)
         
         for key, value in words.items():
-            game_state_picture = GameStatePicture()
+            game_state_picture = GameStatePicture(level=level)
             game_boxes.append(
                 GameBox(key, value, game_state_picture, self.luck, MainWindow)
             )
@@ -76,6 +76,8 @@ class GameArcade(QObject):
         for game_box in game_boxes:
             game_box.all_letters_filled.connect(self.next_game_box)
             self.stackedWidget.addWidget(game_box)
+            
+        game_boxes[0].setFocus()
         
         self.verticalLayout_2.addWidget(self.stackedWidget)
 

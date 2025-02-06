@@ -18,7 +18,7 @@ class GameMode(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(698, 487)
+        MainWindow.setMinimumSize(0, 0)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
