@@ -1,9 +1,10 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide6.QtGui import QFont
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, Signal, QTimer
 from .game_line_edit import GameLineEdit
 from .letter_button import LetterButton
 from .game_state_picture import GameStatePicture
+from PySide6.QtGui import QKeyEvent
 import unicodedata
 
 class GameBox(QWidget):
@@ -14,6 +15,8 @@ class GameBox(QWidget):
         self.gameStatePicture = game_state_picture
         self.luck = luck
         self.hidden_word = self.format_word(hidden_word)
+        
+        self.setFocusPolicy(Qt.StrongFocus)
         
         self.verticalLayout_3 = QVBoxLayout(self)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -34,7 +37,7 @@ class GameBox(QWidget):
         self.verticalLayout.addWidget(self.gameStatePicture)
         
         self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(5)
+        self.horizontalLayout_2.setSpacing(30)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         
         self.line_edits = []
@@ -101,5 +104,25 @@ class GameBox(QWidget):
     def format_word(self, text):
         text = text.lower()
         text = unicodedata.normalize("NFD", text)
-        text = "".join(char for char in text if unicodedata.category(char) != "Mn")  # Supprimer les accents
+        text = "".join(char for char in text if unicodedata.category(char) != "Mn")
         return text
+    
+    def keyPressEvent(self, event: QKeyEvent):
+        letter = event.text().upper()
+        for layout in [self.horizontalLayout_3, self.horizontalLayout_4, self.horizontalLayout_5]:
+            for i in range(layout.count()):
+                button = layout.itemAt(i).widget()
+                if button and button.letter == letter:
+                    button.on_click()
+                    return
+                
+    # def keyPressEvent(self, event: QKeyEvent):
+    #     letter = event.text().upper()
+    #     for layout in [self.horizontalLayout_3, self.horizontalLayout_4, self.horizontalLayout_5]:
+    #         for i in range(layout.count()):
+    #             button = layout.itemAt(i).widget()
+    #             if button and button.letter == letter:
+    #                 button.setDown(True)
+    #                 button.on_click()
+    #                 QTimer.singleShot(100, lambda: button.setDown(False))
+    #                 return

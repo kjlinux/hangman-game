@@ -11,7 +11,7 @@ class GameLineEdit(QLineEdit):
         font2.setBold(True)
         self.setFont(font2)
         self.setCursor(QCursor(Qt.CursorShape.ArrowCursor))
-        self.setFixedWidth(10)
+        # self.setFixedWidth(3)
         self.setStyleSheet(
             "QLineEdit {\n"
             "    border: none;\n"

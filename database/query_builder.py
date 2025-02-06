@@ -14,7 +14,7 @@ class QueryBuilder:
                 if len(parts) > 3:
                     categories.add(parts[-1])
         
-        return list(categories)
+        return sorted(list(categories))
     
     def get_random_elements(self, level, categories, rounds):
         elements = []

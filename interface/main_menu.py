@@ -85,7 +85,7 @@ class MainMenu(object):
         current_size = main_window.size()
 
         self.game_mode = GameMode(self.cube)
-        GameModeProvider.set_instance(self.game_mode, main_window)  # Enregistrer main_window aussi
+        GameModeProvider.set_instance(self.game_mode, main_window)
 
         self.game_mode.setupUi(main_window)
         main_window.resize(current_size)

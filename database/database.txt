@@ -1,4 +1,4 @@
-Pomme, Un fruit rouge ou vert, sucré, souvent mangé cru, 0, Aliments  
+Pomme, Un fruit rouge ou vert sucré souvent mangé cru, 0, Aliments  
 Éléphant, Le plus grand mammifère terrestre avec une trompe, 0, Animaux  
 Crayon, Objet utilisé pour écrire ou dessiner, 0, Objets  
 Avion, Moyen de transport qui vole dans le ciel, 0, Transports  
@@ -6,7 +6,6 @@ Chat, Animal domestique connu pour ses moustaches et ses ronronnements, 0, Anima
 Plage, Lieu au bord de la mer avec du sable, 0, Lieux  
 Pizza, Plat italien rond avec du fromage et de la sauce tomate, 0, Aliments  
 Lune, Satellite naturel de la Terre visible la nuit, 0, Astronomie  
-Paris, Capitale de la France, célèbre pour la tour Eiffel, 0, Pays & Villes  
 Fromage, Produit laitier souvent utilisé dans les sandwichs, 0, Aliments  
 Banane, Fruit jaune apprécié pour son goût sucré, 0, Aliments  
 Bateau, Moyen de transport sur l’eau, 0, Transports  
@@ -42,7 +41,6 @@ Ardoise, Matériau utilisé autrefois pour écrire à l'école, 1, Objets
 Matrice, Structure mathématique utilisée en algèbre, 2, Sciences  
 Samouraï, Guerrier japonais de l’époque féodale, 2, Histoire  
 Zephyr, Vent doux et agréable, 2, Nature  
-Pluton, Ancienne planète, maintenant classée comme planète naine, 2, Astronomie  
 Obsidienne, Roche volcanique noire et brillante, 2, Sciences  
 Papyrus, Support d’écriture dans l’Égypte ancienne, 2, Histoire  
 Kintsugi, Art japonais de réparer la céramique avec de l’or, 2, Culture  
@@ -56,7 +54,6 @@ Zodiaque, Ensemble des constellations traversées par le soleil, 2, Astronomie
 Origami, Art japonais de pliage du papier, 2, Culture  
 Cryogénie, Science étudiant la production de très basses températures, 2, Sciences  
 Quasar, Source d’énergie lumineuse au centre des galaxies, 2, Astronomie  
-Fjord, Vallée glaciaire en Norvège, souvent envahie par la mer, 2, Lieux  
 Tsunami, Vague gigantesque causée par un séisme sous-marin, 2, Nature  
 Mimétisme, Adaptation permettant à un animal de se fondre dans son environnement, 2, Animaux  
 Geyser, Source chaude qui projette de l'eau et de la vapeur, 2, Nature  
@@ -69,12 +66,10 @@ Trilobite, Fossile d’un ancien arthropode marin, 2, Paléontologie
 Stradivarius, Violon célèbre et très précieux, 2, Objets  
 Phare, Tour servant de guide pour les bateaux, 2, Objets  
 Astrolabe, Instrument ancien utilisé pour observer les étoiles, 2, Astronomie  
-Manuscrit, Document écrit à la main, souvent ancien, 2, Histoire  
 Hypothèse, Proposition qu’on cherche à vérifier ou démontrer, 2, Sciences  
 Hyperbole, Figure de style consistant à exagérer, 2, Littérature  
 Éphémère, Qui ne dure pas longtemps, 2, Adjectifs  
 Alambic, Appareil utilisé pour la distillation, 2, Objets
-Sculpture, Œuvre d'art en trois dimensions, souvent faite de pierre ou de bois, 1, Arts  
 Aurore, Lumière du matin ou phénomène polaire lumineux, 1, Nature  
 Éventail, Accessoire utilisé pour se rafraîchir, 1, Objets  
 Kangourou, Animal marsupial connu pour ses sauts et sa poche ventrale, 1, Animaux  
@@ -90,7 +85,6 @@ Cryptographie, Science de l'écriture secrète et codée, 2, Sciences
 Nébuleuse, Nuage de gaz et de poussière dans l’espace, 2, Astronomie  
 Anubis, Divinité égyptienne représentée avec une tête de chacal, 2, Mythologie  
 Pléiades, Groupe d'étoiles visible dans le ciel nocturne, 2, Astronomie  
-Basilic, Plante aromatique utilisée en cuisine, ou créature légendaire, 2, Aliments  
 Mycologie, Science qui étudie les champignons, 2, Sciences  
 Sismographe, Instrument mesurant les tremblements de terre, 2, Sciences  
 Chimère, Créature mythologique composée de parties d'animaux différents, 2, Mythologie  
@@ -126,7 +120,6 @@ Métaphore, Figure de style comparant deux idées sans utiliser "comme", 1, Litt
 Harmonica, Instrument de musique à vent souvent utilisé dans le blues, 1, Arts  
 Astéroïde, Corps rocheux tournant autour du soleil, 2, Astronomie  
 Génome, Ensemble du matériel génétique d’un organisme, 2, Sciences  
-Oasis, Zone fertile dans un désert, souvent autour d’une source d’eau, 2, Nature  
 Minotaure, Créature mythologique mi-homme mi-taureau, 2, Mythologie  
 Ziggourat, Temple mésopotamien en forme de pyramide à étages, 2, Histoire  
 Paradoxe, Proposition contraire à l’intuition ou à la logique, 2, Philosophie  
@@ -149,12 +142,9 @@ Fourchette, Ustensile utilisé pour manger, 0, Objets
 Ballon, Objet sphérique utilisé dans plusieurs jeux, 0, Objets  
 Chat, Animal domestique apprécié pour sa douceur, 0, Animaux  
 Pluie, Précipitation sous forme de gouttes d’eau, 0, Nature  
-Fleur, Partie colorée d'une plante, souvent parfumée, 0, Nature  
 Livre, Objet contenant des pages écrites ou imprimées, 0, Objets  
 Mer, Grande étendue d'eau salée, 0, Lieux  
 Pain, Aliment de base souvent fait de farine et d’eau, 0, Aliments  
-Lune, Satellite naturel de la Terre, visible la nuit, 0, Astronomie  
-Araignée, Petit animal à huit pattes, souvent tisseur de toiles, 1, Animaux  
 Tigre, Grand félin à rayures orange et noires, 1, Animaux  
 Pyramide, Monument ancien de forme triangulaire, 1, Histoire  
 Mangue, Fruit tropical sucré et juteux, 1, Aliments  
@@ -181,12 +171,10 @@ Amphithéâtre, Structure antique utilisée pour des spectacles publics, 2, Hist
 Alchimie, Ancienne pratique visant à transformer les métaux en or, 2, Sciences  
 Baryton, Voix masculine intermédiaire entre ténor et basse, 2, Arts  
 Cartographie, Science de la création des cartes, 2, Géographie  
-Marathon, Course à pied de 42,195 kilomètres, 2, Sports  
 Chandelle, Ancienne source de lumière faite de cire, 2, Objets  
 Euphémisme, Expression adoucie pour éviter de choquer, 2, Littérature
 Canard, Oiseau aquatique souvent domestiqué, 0, Animaux  
 Cloche, Objet émettant un son en étant frappé, 0, Objets  
-Sapin, Arbre à feuilles persistantes, souvent utilisé à Noël, 0, Nature  
 Zèbre, Animal à rayures noires et blanches, 0, Animaux  
 Gant, Accessoire pour couvrir les mains, 0, Objets  
 Brique, Bloc utilisé dans la construction, 0, Objets  
@@ -200,7 +188,6 @@ Savane, Vaste plaine herbeuse dans les régions tropicales, 1, Nature
 Gondole, Bateau traditionnel utilisé à Venise, 1, Transports  
 Bambou, Plante à tige creuse souvent utilisée dans la construction, 1, Nature  
 Harpe, Instrument de musique à cordes pincées, 1, Arts  
-Cristal, Solide aux faces planes, souvent transparent, 1, Sciences  
 Vampire, Créature légendaire buvant le sang des vivants, 1, Mythologie  
 Geyser, Source jaillissante d’eau chaude, 1, Nature  
 Puzzle, Jeu consistant à assembler des pièces pour former une image, 1, Objets  
