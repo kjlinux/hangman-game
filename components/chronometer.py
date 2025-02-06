@@ -16,7 +16,7 @@ class Chronometer(QLabel):
         self.setText(self.time.toString("mm:ss"))
         
     def start(self):
-        self.timer.start(1000)  # Update every second
+        self.timer.start(1000)
     
     def stop(self):
         self.timer.stop()

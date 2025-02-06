@@ -116,13 +116,3 @@ class GameBox(QWidget):
                     button.on_click()
                     return
                 
-    # def keyPressEvent(self, event: QKeyEvent):
-    #     letter = event.text().upper()
-    #     for layout in [self.horizontalLayout_3, self.horizontalLayout_4, self.horizontalLayout_5]:
-    #         for i in range(layout.count()):
-    #             button = layout.itemAt(i).widget()
-    #             if button and button.letter == letter:
-    #                 button.setDown(True)
-    #                 button.on_click()
-    #                 QTimer.singleShot(100, lambda: button.setDown(False))
-    #                 return

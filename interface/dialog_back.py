@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QLabel, QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, Qt)
+from PySide6.QtGui import (QFont)
+from PySide6.QtWidgets import (QDialogButtonBox, QLabel, QVBoxLayout)
 from providers.game_mode_provider import GameModeProvider
 
 class DialogBack(object):
     def __init__(self, main_window):
-        self.main_window = main_window  # Parent est une instance de GameMode
+        self.main_window = main_window
     def setupUi(self, Dialog):
         self.dialog = Dialog
         Dialog.setWindowFlags(Dialog.windowFlags() & ~Qt.WindowCloseButtonHint)

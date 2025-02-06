@@ -10,19 +10,19 @@ class SelectOptionButton(QPushButton):
         self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
         self.setStyleSheet(u"QPushButton {\n"
-                           "    background-color: #FFD9CE; /* Fond par défaut */\n"
-                           "    border: 2px solid #DB5461; /* Bordure */\n"
-                           "    border-radius: 20px; /* Forme ovale */\n"
-                           "    min-width: 80px;\n"
-                           "    min-height: 40px;\n"
-                           "    color: #DB5461; /* Couleur du texte par défaut */\n"
-                           "    font-weight: bold; /* Rendre le texte plus lisible */\n"
-                           "}\n"
+                           "    background-color: #FFD9CE;"
+                           "    border: 2px solid #DB5461;"
+                           "    border-radius: 20px;"
+                           "    min-width: 80px;"
+                           "    min-height: 40px;"
+                           "    color: #DB5461;"
+                           "    font-weight: bold; "
+                           "}"
                            "\n"
-                           "QPushButton:checked {\n"
-                           "    background-color: #DB5461; /* Fond quand coché */\n"
-                           "    color: #FFD9CE; /* Texte quand coché */\n"
-                           "}\n"
+                           "QPushButton:checked {"
+                           "    background-color: #DB5461;"
+                           "    color: #FFD9CE;"
+                           "}"
                            "")
         self.setCheckable(True)
         self.setChecked(False)

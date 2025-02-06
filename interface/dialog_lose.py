@@ -1,22 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, Signal, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QPushButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, Signal, Qt)
+from PySide6.QtGui import (QFont, QPixmap)
+from PySide6.QtWidgets import (QDialog, QLabel, QPushButton, QVBoxLayout)
 from providers.game_mode_provider import GameModeProvider
 
 class DialogLose(QDialog):
-    return_to_main_menu = Signal()
     
-    def __init__(self, main_window, parent=None, on_return_to_main_menu=None):
+    def __init__(self, main_window, parent=None):
         super().__init__(parent)
-        self.on_return_to_main_menu = on_return_to_main_menu
         self.main_window = main_window
         self.setupUi(self)
     def setupUi(self, Dialog):
