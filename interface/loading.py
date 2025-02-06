@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'loading.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt, QPropertyAnimation, QSequentialAnimationGroup)
@@ -18,8 +10,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QProgressBar,
     QSizePolicy, QVBoxLayout, QWidget)
 from interface.game_arcade import GameArcade
+from interface.game_limitless import GameLimitless
 
 class Loading(object):
+    
+    def __init__(self, mode):
+        self.mode = mode
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -87,8 +83,8 @@ class Loading(object):
         main_window = QApplication.activeWindow()
         current_size = main_window.size()
 
-        self.game_arcade = GameArcade()
-        self.game_arcade.setupUi(main_window) 
+        self.game_mode = GameArcade() if self.mode == 'arcade' else GameLimitless()
+        self.game_mode.setupUi(main_window) 
 
         main_window.resize(current_size)
         main_window.show()

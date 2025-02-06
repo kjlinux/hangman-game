@@ -10,6 +10,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
 from .select_level import SelectLevel
+from interface.loading import Loading
+
 class GameMode(object):
     def __init__(self, cube):
         self.cube = cube
@@ -55,6 +57,7 @@ class GameMode(object):
         QMetaObject.connectSlotsByName(MainWindow)
         
         self.arcadeButton.clicked.connect(self.on_arcade_button_clicked)
+        self.limitlessButton.clicked.connect(self.on_limitless_button_clicked)
         
     # setupUi
 
@@ -63,7 +66,6 @@ class GameMode(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"GAME MODE", None))
         self.arcadeButton.setText(QCoreApplication.translate("MainWindow", u"ARCADE", None))
         self.limitlessButton.setText(QCoreApplication.translate("MainWindow", u"LIMITLESS", None))
-    # retranslateUi
     
     def on_arcade_button_clicked(self):
         main_window = QApplication.activeWindow()
@@ -71,6 +73,15 @@ class GameMode(object):
 
         self.select_level = SelectLevel(self.cube)
         self.select_level.setupUi(main_window)
+
+        main_window.resize(current_size)
+        
+    def on_limitless_button_clicked(self):
+        main_window = QApplication.activeWindow()
+        current_size = main_window.size()
+
+        self.loading = Loading('limitless')
+        self.loading.setupUi(main_window)
 
         main_window.resize(current_size)
 

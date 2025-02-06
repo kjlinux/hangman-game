@@ -85,7 +85,7 @@ class GameArcade(QObject):
         QMetaObject.connectSlotsByName(MainWindow)
         
         self.last_game_box_full.connect(self.game_win)
-    # setupUi
+        
     def get_luck(self):
         return self.luck
     

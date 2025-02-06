@@ -113,18 +113,17 @@ class SelectNumber(object):
         self.selectLabel.setText(QCoreApplication.translate("MainWindow", u"ROUNDS", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"5", None))
         self.startButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
-    # retranslateUi
     
     def update(self, value):
         self.label.setText(str(value))
         self.cube["rounds"] = value
-        print(self.cube)
+        # print(self.cube)
         
     def start(self):
         main_window = QApplication.activeWindow()
         current_size = main_window.size()
 
-        self.loading = Loading()
+        self.loading = Loading('arcade')
         self.loading.setupUi(main_window)
 
         main_window.resize(current_size)
