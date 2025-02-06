@@ -21,6 +21,7 @@ class DialogLose(QDialog):
         self.setupUi(self)
     def setupUi(self, Dialog):
         self.dialog = Dialog
+        Dialog.setWindowFlags(Dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout = QVBoxLayout(Dialog)

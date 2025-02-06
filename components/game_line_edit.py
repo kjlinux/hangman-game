@@ -13,14 +13,14 @@ class GameLineEdit(QLineEdit):
         self.setCursor(QCursor(Qt.CursorShape.ArrowCursor))
         # self.setFixedWidth(3)
         self.setStyleSheet(
-            "QLineEdit {\n"
-            "    border: none;\n"
-            "    border-bottom: 5px solid #DB5461; /* Épaissit la bordure en bas */\n"
-            "    padding: 5px; /* Ajoute plus d'espace interne */\n"
-            "    background-color: transparent;\n"
-            "    color: white;\n"
-            "    font-weight: bold; /* Rend le texte plus épais */\n"
-            "}\n"
+            "QLineEdit {"
+            "    border: none;"
+            "    border-bottom: 5px solid #DB5461;"
+            "    padding: 5px;"
+            "    background-color: transparent;"
+            "    color: white;"
+            "    font-weight: bold;"
+            "}"
         )
         self.setMaxLength(1)
         self.setFrame(True)

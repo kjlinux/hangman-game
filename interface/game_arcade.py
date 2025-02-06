@@ -25,7 +25,7 @@ class GameArcade(QObject):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(799, 635)
+        self.setMinimumSize(0, 0)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)

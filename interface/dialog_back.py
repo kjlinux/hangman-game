@@ -16,6 +16,7 @@ class DialogBack(object):
         self.main_window = main_window  # Parent est une instance de GameMode
     def setupUi(self, Dialog):
         self.dialog = Dialog
+        Dialog.setWindowFlags(Dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
         Dialog.setStyleSheet(u"background-color: rgb(109, 114, 195);")
         self.verticalLayout = QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")

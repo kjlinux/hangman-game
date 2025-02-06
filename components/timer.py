@@ -8,7 +8,17 @@ class Timer(QProgressBar):
         super().__init__(parent)
         self.setObjectName(u"progressBar")
         self.setAutoFillBackground(False)
-        self.setStyleSheet(u"")
+        self.setStyleSheet(
+            "QProgressBar {"
+            "    border: none;"
+            "    background-color: #FFD9CE;"
+            "    height: 16px;"
+            "}"
+            "QProgressBar::chunk {"
+            "    background-color: #DB5461;"
+            "    width: 3px;"
+            "}"
+        )
         self.setValue(100)
         self.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.setTextVisible(False)

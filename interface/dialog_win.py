@@ -16,6 +16,7 @@ class DialogWin(object):
         self.main_window = main_window
     def setupUi(self, Dialog):
         self.dialog = Dialog
+        Dialog.setWindowFlags(Dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet(u"background-color: rgb(255, 217, 206);")
         self.verticalLayout = QVBoxLayout(Dialog)
